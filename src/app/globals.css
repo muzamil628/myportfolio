@@ -114,4 +114,12 @@
     transform: none;
   }
 
+  .hero-shell .hero-enter,
+  .hero-shell .hero-copy .hero-eyebrow,
+  .hero-shell .hero-title-line {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
 }
