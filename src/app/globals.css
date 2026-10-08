@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f6f5f1;
+  --card: #ffffff;
+  --ink: #191a37;
+  --ink-2: #45465f;
+  --accent: #5556a8;
+  --mute: #77788e;
+  --faint: #a9a9ba;
+  --line: rgba(36, 37, 83, 0.12);
+  --soft: #eeedf5;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: clamp(18px, 4vw, 64px);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans), Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    display: block;
+  }
+
+  ::selection {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+}
+
+@layer components {
+  .rv {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  }
+
+  .rv.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .rv-mask {
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .rv {
+    opacity: 1;
+    transform: none;
+  }
+
+}
